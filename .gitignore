@@ -1,3 +1,9 @@
 Langgraph/.env
 llmEnv
 ML_NN_Env
+DogBreedsClassification/dog-breed-identification
+DogBreedsClassification/dog-breeds
+DogBreedsClassification/Images
+DogBreedsClassification/test
+DogBreedsClassification/train
+DogBreedsClassification/val
