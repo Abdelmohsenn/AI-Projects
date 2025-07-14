@@ -1,0 +1,13 @@
+tensorflow
+keras
+matplotlib
+opencv-python
+pandas
+numpy
+split-folders
+scikit-learn
+ipython
+langgraph
+langchain
+langchain-core
+langchain-openai
