@@ -1,4 +1,4 @@
-# 🧠 Machine Learning / Deep Learning Projects
+# 🧠 NLP/ML/DL Projects
 
 Welcome to my collection of ML and Deep Learning projects. Each project focuses on a real-world problem and demonstrates various deep learning techniques using modern Python libraries.
 
