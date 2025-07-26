@@ -47,4 +47,13 @@ Predicts a person's gender from their name.
 ### 4. **Gender Classification from Images** 📷🧔👩  
 A CNN-based model to classify gender from facial images.  (0 => Females, 1 => Males)
 - **Technique:** CNN for image-based classification  
-- **Dataset:** [UTKFace Dataset](https://www.kaggle.com/datasets/jangedoo/utkface-new)  
+- **Dataset:** [UTKFace Dataset](https://www.kaggle.com/datasets/jangedoo/utkface-new)
+
+---
+
+### 5. **Dogs vs Cats Classification** 🐶🐱  
+A binary image classification project using **VGG16** pretrained model with fine-tuning to distinguish between dog and cat images.  
+- **Technique:** Transfer Learning with VGG16  
+- **Dataset:** [Dog and Cat Classification Dataset](https://www.kaggle.com/datasets/bhavikjikadara/dog-and-cat-classification-dataset)  
+- **Approach:** Feature extraction + fine-tuning  
+
