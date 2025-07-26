@@ -52,7 +52,3 @@ def localSTT():
                 print("Could not understand.")
             except sr.RequestError:
                 print("API unavailable.")
-
-# print(f"Baymax-style speech generated and saved to {output_file_path}")
-# demotext = STT()
-# print(demotext)
