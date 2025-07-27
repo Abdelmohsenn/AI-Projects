@@ -20,6 +20,7 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder, Prom
 from langchain.memory import ConversationBufferMemory, ConversationBufferWindowMemory
 import pandas as pd
 
+
 UserID = 1 
 memories = {}
 UserMessages = []
