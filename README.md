@@ -55,5 +55,32 @@ A CNN-based model to classify gender from facial images.  (0 => Females, 1 => Ma
 A binary image classification project using **VGG16** pretrained model with fine-tuning to distinguish between dog and cat images.  
 - **Technique:** Transfer Learning with VGG16  
 - **Dataset:** [Dog and Cat Classification Dataset](https://www.kaggle.com/datasets/bhavikjikadara/dog-and-cat-classification-dataset)  
-- **Approach:** Feature extraction + fine-tuning  
+- **Approach:** Feature extraction + fine-tuning
+
+Certainly! Here is a **Markdown section** ready to copy-paste into your `README.md`. It matches your formatting and introduces the **CodeGPT (Coding Assistant LLM)** project as requested:
+
+---
+
+### 6. **CodeGPT (Coding Assistant LLM)** 🤖🧑‍💻  
+A fully functional, RAG-based coding assistant that leverages advanced LLMs for interactive programming help, retrieval-augmented generation, and real conversational memory—plus support for both text and speech!
+
+- **Technologies Used:**  
+  - [LangChain](https://python.langchain.com/) for workflow orchestration & conversational memory  
+  - [MemoryBuffers](https://python.langchain.com/docs/modules/memory/) to retain chat history and code context  
+  - [OpenAI API (GPT-4o)](https://platform.openai.com/docs/guides/gpt) for code generation and dialog  
+  - [FAISS](https://github.com/facebookresearch/faiss) for fast vector store and retrieval (semantic code/doc search)  
+  - [SpeechRecognition](https://pypi.org/project/SpeechRecognition/) for Speech-to-Text (STT)  
+  - [OpenAI Whisper](https://github.com/openai/whisper)  
+
+- **Key Features:**  
+  - **Retrieval-Augmented Generation (RAG):**  
+    Provides LLM answers empowered by code/document search from custom/local sources using FAISS.
+  - **Conversational Memory:**  
+    Remembers multi-turn programming conversations for context-aware help.
+  - **Text & Voice IO:**  
+    Ask coding questions via microphone, hear and read stepwise answers.
+  - **Practical Use Cases:**  
+    Code explanation, error fixing, inline suggestions, and knowledge base Q&A.
+  - **Easy Extensibility:**  
+    Plug in your own indexed docs, project files, or wiki for tailored assistance.
 
