@@ -1,24 +1,18 @@
 from openai import OpenAI
 from dotenv import load_dotenv
-import os
 from pathlib import Path
-import numpy as np
-from pydub import AudioSegment
-import numpy as np
 import speech_recognition as sr
 
 load_dotenv()
 apikey = os.getenv("OPENAI_API_KEY")
 client = OpenAI()
 
-Text = "Hello, I am CodeGPT, your personal Coding Assistant. I am here for you."
-
 # Set up file paths
 speech_file_path = Path(__file__).parent / "speech.wav"
 output_file_path = Path(__file__).parent / "CodeGPT.wav"
 
-# speech to text using open ai
-def TTS(output,outpath):
+# Text to speech using open ai
+def TTS(output, outpath):
     response = client.audio.speech.create(
         model="tts-1-hd",
         voice="echo",  
@@ -27,7 +21,7 @@ def TTS(output,outpath):
     )
     response.stream_to_file(outpath)
 
-# text to speech usning open ai
+# Speech to text using open ai
 def STT():
     response = client.audio.transcriptions.create(
         model="whisper-1",

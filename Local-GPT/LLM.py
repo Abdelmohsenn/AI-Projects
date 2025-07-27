@@ -1,14 +1,10 @@
-import re
-import os
-import ollama
-import random
+import random, json, re, os
 from pydub.playback import play
 from dotenv import load_dotenv
-from Client import FilteringTTS, STT, localSTT
+from Client import STT, localSTT, TTS
 import speech_recognition as sr
 from pydub import AudioSegment
 from langchain_openai import ChatOpenAI
-from langchain.document_loaders import CSVLoader, TextLoader, PyPDFLoader
 from langchain.chains import LLMChain, ConversationChain
 from langchain_ollama import OllamaLLM, ChatOllama
 from langchain.chains import ConversationChain
@@ -21,28 +17,28 @@ from langchain.schema import Document
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder, PromptTemplate
-
 from langchain.memory import ConversationBufferMemory, ConversationBufferWindowMemory
 import pandas as pd
 
+UserID = 1 
+memories = {}
+UserMessages = []
+history = InMemoryChatMessageHistory()
+exitting_phrases = ["goodbye", "Goodbye", "bye", "Bye", "exit", "Exit", "leave", "Leave", "stop", "Stop", "quit", "Quit"]
+
 ## important initializations
 load_dotenv()
+
 # Get the API key from the .env file
 Oapi_key = os.getenv("OPENAI_API_KEY")
 embedding = OpenAIEmbeddings(api_key=Oapi_key, model="text-embedding-3-large")
 embeddingADA = OpenAIEmbeddings(api_key=Oapi_key, model="text-embedding-ada-002")
 
 # Past Conversations Loading (Dummy)
-UserMessages = {
-    1: [
-        {"role": "ai", "content": "Hello Dear"},
-        {"role": "human", "content": "Hi"},
-    ],
-    2: [] 
-}
+with open("Local-GPT/History.json", "r") as file:
+    json_data = file.read()
+    UserMessages.append(json.loads(json_data))
 
-memories = {}
-UserID = 1  # Default user ID for testing
 
 #Main Prompt
 prompt = ChatPromptTemplate([
@@ -53,10 +49,11 @@ prompt = ChatPromptTemplate([
 
 # loading past conv into the buffers
 def InitializingMemories(userId, memtype):
-    history = InMemoryChatMessageHistory()
-    user_msgs = UserMessages.get(userId, [])
+    index = userId - 1  # Adjust index for zero-based indexing
+    user_conversations = UserMessages[0][index].get('history', [])  # List of conversation blocks
+    print("User Conversations Loaded:", user_conversations)
 
-    for msg in user_msgs:
+    for msg in user_conversations:
         if msg["role"] == "ai":
             history.add_ai_message(msg["content"])
         elif msg["role"] == "human":
@@ -66,19 +63,16 @@ def InitializingMemories(userId, memtype):
         memory = ConversationBufferMemory(memory_key="history", return_messages=True, chat_memory=history)
     elif memtype == 2:
         memory = ConversationBufferWindowMemory(memory_key="history", return_messages=True, chat_memory=history, k=10)
-
     return memory
 
 
-# RAG Pipeline
+
+# RAG Pipeline Function
 def RAG(csv):
     vectors = None  
     df = pd.read_csv(csv, usecols=[0, 1])
     df = df.dropna()
     df.columns = ['input', 'output']
-    print(df.shape)  # Show number of rows and columns
-    print(df.head(10))  # Show first 10 rows
-    print(df.dtypes)  # Show column types
 
     batch_size = 10000
     num_rows = len(df)  
@@ -112,7 +106,7 @@ def LoadVectors(path):
 def LLMS():
     #GPT-4o
     MainLLM = ChatOpenAI(model='gpt-4o', api_key=Oapi_key, temperature=0.6) # the higher the temperature, the more creative the response
-    #LLAMA
+    #LLAMA LLMs
     Llama3_3 = OllamaLLM(model="llama3.3")
     Llama3_2 = OllamaLLM(model="llama3.2")
     #Deepseek
@@ -123,10 +117,10 @@ def LLMS():
     return MainLLM,Llama3_3,Llama3_2,Deepseek,gemma3
 
 # RAG Retrieval
-def retrieve_response(prompt):
+def retrieve_response(prompt, vecStore):
     ConcatenatedResponses = ""
     count = 0
-    similar_docs = vectors.similarity_search(prompt, k=1)  # Get the most relevant match
+    similar_docs = vecStore.similarity_search(prompt, k=1)  # Get the most relevant match
     for doc in similar_docs:
         print(f"Retrieved Document: {doc.page_content} -> {doc.metadata['response']}")
 
@@ -150,20 +144,20 @@ def GetChain(systemPrompt, llm, userId, memoryType):
     )
     return chat, memory
 
-def Run(userID, user_input, system_message, chat):
+def Run(userID, user_input, system_message, chat, VecStore):
 
-    retrievedText = retrieve_response(user_input)
+    retrievedText = retrieve_response(user_input, VecStore)
 
     # all the exitting phrases
     if user_input in exitting_phrases:
-        FilteringTTS("Goodbye! See you soon :)", "BotAudio.wav")
+        TTS("Goodbye! See you soon for another journey of coding! :)", "BotAudio.wav")
         sound = AudioSegment.from_file("BotAudio.wav")
         play(sound)        
         exit(1)
 
     updated_system_message = f"""
     {system_message} \n
-    \n### Provided Similar Responses: \n{retrievedText} \n """ # update the prompt with the retrieved text
+    \n ### Similar Retrieved Topic: \n {retrievedText} \n """ # update the prompt with the retrieved text
 
     updated_prompt = ChatPromptTemplate.from_messages([
         ("system", updated_system_message),
@@ -176,23 +170,24 @@ def Run(userID, user_input, system_message, chat):
     "input": f"{user_input}\n"  # embed retrieved docs in input
 })
      
-    clean_response = re.sub(r"<think>.*?</think>\s*", "", response['response'], flags=re.DOTALL) # **only for O1 & deepsek R1**
-
-    print(clean_response)
-    FilteringTTS(clean_response, "BotAudio.wav")
+    clean_response =  response['response']
+    TTS(clean_response, "BotAudio.wav")  # Convert response to speech
     sound = AudioSegment.from_file("BotAudio.wav")
-    play(sound)
-    return clean_response
+    return clean_response, sound
 
-exitting_phrases = ["goodbye", "Goodbye", "bye", "Bye", "exit", "Exit", "leave", "Leave", "stop", "Stop", "quit", "Quit"]
 
-# RAG("/home/group02-f24/Documents/Khalil/Datasets/AllDAIC/aligned_responses_filtered.csv") # loading the RAG database
+# RAG("doc.csv") # loading the RAG database
 vectors = LoadVectors("/Users/muhammadabdelmohsen/Desktop/University/Spring 25/Thesis/LLM/RAG_Vectors/Index_Large_Faiss")
 
 # All LLMS (Choose whatever you want in the llm parameter in run function)
 MainLLM, Llama3_3, Llama3_2, Deepseek, gemma3 = LLMS()
 
-chain, mem = GetChain(systemPrompt=prompt, llm= MainLLM, userId=UserID, memoryType=1) #now every user has his own chat chain
+chain, mem = GetChain(
+    systemPrompt=prompt,
+    llm= MainLLM,
+    userId=UserID,
+    memoryType=UserID
+    ) 
 
 while True:
     counter=0
@@ -200,12 +195,14 @@ while True:
     while(counter!=1):
         if choice == '1':
             text = input("Enter your Prompt >> ")
-            Run(userID=UserID, user_input=text, system_message = system_message, chat=chain)
+            Response, sound = Run(userID=UserID, user_input=text, system_message = system_message, chat=chain, VecStore=vectors)
             counter=1
         elif choice == '2':     
-            text = localSTT() #initializing the mic for the bot
-            Run(userID=UserID, user_input=text, system_message = system_message, chat=chain)
+            text = localSTT()
+            Response, sound = Run(userID=UserID, user_input=text, system_message = system_message, chat=chain, VecStore=vectors)
             counter=1
         else:
             print("Invalid choice, Please Re-enter")
             choice = input("Enter 1 for Text or 2 for Voice: ")
+    print(f"CodeGPT: {Response}")
+    play(sound)  # Play the sound response
