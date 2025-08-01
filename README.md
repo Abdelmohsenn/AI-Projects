@@ -66,7 +66,7 @@ A fully functional, RAG-based coding assistant that leverages advanced LLMs for 
 
 - **Technologies Used:**  
   - [LangChain](https://python.langchain.com/) for workflow orchestration & conversational memory  
-  - [MemoryBuffers](https://python.langchain.com/docs/modules/memory/) to retain chat history and code context  
+  - [ConversationalMemoryBuffers](https://python.langchain.com/docs/modules/memory/) to retain chat history and code context  
   - [OpenAI API (GPT-4o)](https://platform.openai.com/docs/guides/gpt) for code generation and dialog  
   - [FAISS](https://github.com/facebookresearch/faiss) for fast vector store and retrieval (semantic code/doc search)  
   - [SpeechRecognition](https://pypi.org/project/SpeechRecognition/) for Speech-to-Text (STT)  
