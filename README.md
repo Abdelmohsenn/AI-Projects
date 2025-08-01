@@ -14,6 +14,7 @@ Welcome to my collection of ML and Deep Learning projects. Each project focuses 
 - **OpenCV**
 - **ImageDataGenerator**
 - **Pillow**
+- **Scikit Learn**
 
 **Kindly Find The `requirements.txt` in The Repo For Guided Installation via:**  
 `pip install -r requirements.txt`
