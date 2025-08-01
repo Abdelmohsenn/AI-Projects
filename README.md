@@ -61,7 +61,52 @@ Certainly! Here is a **Markdown section** ready to copy-paste into your `README.
 
 ---
 
-### 6. **CodeGPT (Coding Assistant LLM)** 🤖🧑‍💻  
+### 6. **Stock Price Prediction (Apple Inc.)** 📈🍏  
+A regression-based machine learning model to predict the stock **closing price** of Apple (AAPL) using historical data from **Yahoo Finance (2015–2024)**.
+
+---
+
+## 📚 Libraries Used
+- **pandas**
+- **numpy**
+- **matplotlib**
+- **scikit-learn**
+- **yfinance**
+
+---
+
+- **Task:** Time Series Regression  
+- **Target:** `Close` price  
+- **Features Used:** `Open`, `High`, `Low`, `Volume`, `Date`  
+- **Dataset Source:** [Yahoo Finance – AAPL](https://finance.yahoo.com/quote/AAPL/history?p=AAPL)  
+
+- **ML Algorithms:**  
+  - `LinearRegression`  
+
+- **Preprocessing Steps:**  
+  - Datetime parsing and sorting  
+  - Feature selection  
+  - Train/Test split using `train_test_split`  
+  - Optional feature scaling (e.g., MinMaxScaler)
+
+- **Evaluation Metrics:**  
+  - **R² Score** – Measures how well the model explains variance in the target  
+  - **Mean Squared Error (MSE)** – Average of squared prediction errors  
+  - **Mean Absolute Error (MAE)** – Average of absolute prediction errors  
+
+> 📌 **Note:**  
+> R² Score is not the same as classification accuracy.  
+> - R² ranges from −∞ to 1, with **1 meaning perfect prediction**  
+> - Accuracy applies to classification, not regression tasks
+
+- **Output:**  
+  - Predictive model for Apple closing prices  
+  - Visualization of Actual vs Predicted prices  
+  - Average daily prediction error (e.g., $0.02 USD)
+
+---
+
+### 7. **CodeGPT (Coding Assistant LLM)** 🤖🧑‍💻  
 A fully functional, RAG-based coding assistant that leverages advanced LLMs for interactive programming help, retrieval-augmented generation, and real conversational memory—plus support for both text and speech!
 
 - **Technologies Used:**  
