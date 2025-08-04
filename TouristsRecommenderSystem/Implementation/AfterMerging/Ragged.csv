@@ -1,0 +1,109 @@
+place_id,place_name,place_type,city,Climate,Operating_Hours
+32,Qubbat Al-Hawa Cemetery,Archaeological Site,Aswan,Rainy,7:00-15:00
+106,Elephantine,Archaeological Site,Aswan,Sunny,8:00-17:00
+79,Al Kab,Archaeological Site,Aswan,Mild,8:00-17:00
+49,Aswan,Archaeological Site,Aswan,Sunny,7:00-15:00
+63,Al-Bahnasa Tombs,Archaeological Site,Al-Minya,Mild,8:00-17:00
+54,Amada Temples,Archaeological Site,Aswan,Dry,7:00-15:00
+95,Temples of Wadi al Sebua,Archaeological Site,Aswan,Hot,10:00-20:00
+31,Abu Mina,Archaeological Site,Alexandria,Humid,9:00-18:00
+98,Gebel al-Silsila,Archaeological Site,Aswan,Hot,24 Hours
+83,Dahshur,Archaeological Site,Giza,Dry,9:00-18:00
+25,Mary’s Tree,Archaeological Site,Cairo,Mild,10:00-20:00
+68,Tell Basta,Archaeological Site,Al-Sharkia,Dry,10:00-20:00
+91,El Hawawish,Archaeological Site,Sohag,Mild,24 Hours
+50,El Sheikh Hamad (Athribis),Archaeological Site,Sohag,Sunny,7:00-15:00
+22,Shali village in Siwa Oasis,Archaeological Site,Matrouh,Humid,6:00-22:00
+86,Beni Hasan,Archaeological Site,Al-Minya,Hot,6:00-22:00
+43,Heliopolis,Archaeological Site,Cairo,Windy,8:00-17:00
+24,Abu Simbel,Archaeological Site,Aswan,Cool,8:00-17:00
+27,Philae,Archaeological Site,Aswan,Sunny,9:00-18:00
+28,Karnak,Archaeological Site,Luxor,Mild,24 Hours
+53,Valley of the Kings,Archaeological Site,Luxor,Dry,10:00-20:00
+26,Deir al-Bahari,Archaeological Site,Luxor,Mild,7:00-15:00
+88,Giza Plateau,Archaeological Site,Giza,Hot,10:00-20:00
+70,Saqqara,Archaeological Site,Giza,Humid,7:00-15:00
+67,Al-Mu'izz Street,Archaeological Site,Cairo,Mild,24 Hours
+71,Cairo Citadel,Archaeological Site,Cairo,Windy,6:00-22:00
+56,Salah al-Din Square,Archaeological Site,Cairo,Windy,8:00-17:00
+42,Al-Saliba Street,Archaeological Site,Cairo,Dry,24 Hours
+52,Al-Saliba Street,Archaeological Site,Cairo,Sunny,7:00-15:00
+87,Al-Fustat (Old Cairo),Archaeological Site,Cairo,Humid,10:00-20:00
+72,Alexandria,Archaeological Site,Alexandria,Humid,7:00-15:00
+47,Saint Catherine’s Monastery,Archaeological Site,South Sinai,Mild,24 Hours
+73,Ayn Shams City,Archaeological Site,Cairo,Sunny,6:00-22:00
+40,khonsu temple,Monument,Egypt,Mild,8:00-17:00
+80,The Ramesseum; The Temple of Ramses II,Monument,Luxor,Rainy,9:00-18:00
+92,The Temple of Medinet Habu,Monument,Luxor,Windy,10:00-20:00
+36,Wikala of Nafisa al-Bayda,Monument,Egypt,Windy,10:00-20:00
+77,The Walls of Cairo,Monument,Egypt,Windy,7:00-15:00
+84,The Architectural Complex of Prince Youssef Kamal,Monument,Qena,Humid,8:00-17:00
+58,Sabil of al-Amir Shaykhu,Monument,Cairo,Mild,8:00-17:00
+35,Mosque of al-Fakahani,Monument,Egypt,Dry,9:00-18:00
+57,Maq'ad of Mamay al-Sayfi,Monument,Egypt,Mild,8:00-17:00
+81,Mosque and Sabil-Kuttab of Shaykh Ali al-Mutahhar,Monument,Egypt,Hot,6:00-22:00
+99,The towers Citadel of Salah al-Din Ayyubi,Monument,Egypt,Cool,10:00-20:00
+107,The Pyramid of Meidum,Monument,Beni Suef,Cool,24 Hours
+38,Muhammad Ali Palace in shubra,Monument,Cairo,Cool,24 Hours
+55,New Kingdom Cemetery in Gebel Al-Silsila,Monument,Egypt,Cool,24 Hours
+82,Nile Stelae,Monument,Egypt,Humid,24 Hours
+90,Royal Stelae,Monument,Egypt,Dry,8:00-17:00
+101,Speos of Horemheb,Monument,Egypt,Windy,24 Hours
+23,The Monastery of Anba Simeon in Aswan,Monument,Aswan,Rainy,6:00-22:00
+105,Mosque of Sulayman Pasha al-Khadim “Saraya al-Jabal mosque”,Monument,Egypt,Dry,8:00-17:00
+62,Joseph's Well,Monument,Egypt,Cool,9:00-18:00
+60,Citadel Prison,Monument,Egypt,Rainy,24 Hours
+104,Mosque of al-Zahir Baybars,Monument,Cairo,Rainy,6:00-22:00
+48,Qaitbay Fort,Monument,Egypt,Humid,6:00-22:00
+78,Kom Ombo Temple,Monument,Aswan,Humid,7:00-15:00
+34,Marsa Matrouh Museum,Museum,Matrouh,Sunny,08:00 AM - 10:00 PM
+45,Graeco-Roman Museum,Museum,Alexandria,Hot,09:00 AM - 05:00 PM
+59,the National Museum of Suez,Museum,Egypt,Rainy,09:00 AM - 03:00 PM
+37,National Military Museum,Museum,Cairo,Mild,08:00 AM - 04:00 PM
+21,Helwan Corner Museum,Museum,Cairo,Humid,09:00 AM - 05:00 PM
+39,Nubia Museum,Museum,Aswan,Humid,09:00 AM - 05:00 PM
+66,Crocodile Museum,Museum,Aswan,Mild,07:00 AM - 09:00 PM
+33,National Police Museum,Museum,Cairo,Dry,08:00 AM - 05:00 PM
+75,Cairo International Airport Museum - Terminal 2,Museum,Cairo,Windy,24 Hours
+29,The Egyptian Museum,Museum,Cairo,Cool,09:00 AM - 05:00 PM
+102,Museum of Islamic Art,Museum,Cairo,Windy,09:00 AM - 05:00 PM
+30,The Coptic Museum,Museum,Cairo,Dry,09:00 AM - 05:00 PM
+108,National Museum of Egyptian Civilization(NMEC),Museum,Cairo,Cool,09:00 AM - 05:00 PM
+96,Cairo International Airport Museum - Terminal 3,Museum,Cairo,Sunny,24 Hours
+74,Sharm al-Sheikh Museum,Museum,South Sinai,Sunny,10:00 AM - 01:00 PM
+41,The Royal Carriages Museum,Museum,Cairo,Windy,09:00 AM - 05:00 PM
+51,Kafr El-Sheikh Museum,Museum,Kafr El-Sheikh,Humid,09:00 AM - 05:00 PM
+97,Gayer Anderson Museum,Museum,Cairo,Sunny,09:00 AM - 05:00 PM
+89,Manial Palace Museum,Museum,Cairo,Sunny,09:00 AM - 05:00 PM
+69,Royal Jewelry Museum,Museum,Alexandria,Hot,09:00 AM - 05:00 PM
+94,Mummification Museum,Museum,Luxor,Dry,09:00 AM - 02:00 PM
+61,Hurghada Museum,Museum,Red Sea,Dry,10:00 AM - 01:00 PM
+44,Imhotep Museum,Museum,Giza,Humid,08:00 AM - 05:00 PM
+100,Wadi Al  Jarf Port,Sunken Monuments,Egypt,Humid,8:00-17:00
+65,Qaitbay Fort site,Sunken Monuments,Egypt,Humid,8:00-17:00
+93,Shatby,Sunken Monuments,Egypt,Sunny,24 Hours
+64,Mamoura Bay,Sunken Monuments,Egypt,Mild,24 Hours
+76,Saadana Island,Sunken Monuments,Egypt,Windy,6:00-22:00
+85,Eastern Harbor,Sunken Monuments,Egypt,Dry,24 Hours
+46,Abu Qir Bay,Sunken Monuments,Egypt,Rainy,6:00-22:00
+103,Aswan,Sunken Monuments,Egypt,Windy,7:00-15:00
+10,Valley of the Kings,Historic,Luxor,Rainy,10:00-20:00
+1,Giza Pyramids,Monument,Giza,Mild,24 Hours
+14,Abu Simbel Temples,Monument,Aswan,Hot,6:00-22:00
+4,Saint Catherine's Monastery,Religious,South Sinai,Rainy,7:00-15:00
+6,Karnak Temple,Monument,Luxor,Sunny,7:00-15:00
+11,Coptic Cairo,Religious,Cairo,Windy,24 Hours
+12,Al-Azhar Park,Nature,Cairo,Sunny,10:00-20:00
+5,Dahab,Beach,South Sinai,Cool,9:00-18:00
+2,Egyptian Museum,Museum,Cairo,Sunny,10:00-20:00
+16,Montaza Palace,Historic,Alexandria,Windy,7:00-15:00
+8,Aswan Philae Temple,Historic,Aswan,Cool,24 Hours
+13,Khan El Khalili,Market,Cairo,Hot,8:00-17:00
+9,El Alamein Military Museum,Museum,El Alamein,Hot,6:00-22:00
+19,Hurghada Marina,Beach,Hurghada,Rainy,24 Hours
+17,Fayoum Waterwheels,Nature,Fayoum,Hot,24 Hours
+7,Siwa Oasis,Desert,Siwa,Hot,7:00-15:00
+15,Alexandria Library,Museum,Alexandria,Hot,7:00-15:00
+18,Wadi El Rayan,Nature,Fayoum,Windy,7:00-15:00
+20,El Gouna,Beach,Hurghada,Windy,10:00-20:00
+3,Ras Mohamed National Park,Nature,Sharm El Sheikh,Sunny,7:00-15:00
