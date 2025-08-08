@@ -5,7 +5,6 @@ import sounddevice as sd
 import soundfile as sf
 import io, json
 from systemPrompt import systemPrompt
-import numpy as np
 
 class Kira:
     def __init__(self, client, modelName, temperature=0.7, max_tokens=2048):
