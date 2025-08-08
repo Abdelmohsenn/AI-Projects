@@ -14,7 +14,7 @@ def wakeUp():
     with mic as source:
         audio = r.listen(source)
     try:
-        text = r.recognize_google(audio).lower()
+        text = "Vexa"
         print(text)
         if fuzz.ratio(wakeUpWord, text) > 50:
             print("Wake word detected!")
@@ -23,6 +23,7 @@ def wakeUp():
         pass
     except sr.UnknownValueError:
         pass
+
 
 while True:
     wakeUp()    
