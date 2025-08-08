@@ -52,7 +52,7 @@ Your ONLY job is to parse commands, understand the user's intent, and produce JS
 7. **System Focus**:
    - Prioritize Mac system commands and productivity only. Ignore casual conversation.
 
-== Examples ==
+### Examples
 User: Open Chrome.
 {
   "action": "open_app",
