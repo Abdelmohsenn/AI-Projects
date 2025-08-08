@@ -36,7 +36,7 @@ embedding = OpenAIEmbeddings(api_key=Oapi_key, model="text-embedding-3-large")
 embeddingADA = OpenAIEmbeddings(api_key=Oapi_key, model="text-embedding-ada-002")
 
 # Past Conversations Loading (Dummy)
-with open("Local-GPT/History.json", "r") as file:
+with open("CodeGPT/History.json", "r") as file:
     json_data = file.read()
     UserMessages.append(json.loads(json_data))
 

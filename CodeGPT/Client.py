@@ -1,5 +1,6 @@
 from openai import OpenAI
 from dotenv import load_dotenv
+import os
 from pathlib import Path
 import speech_recognition as sr
 
