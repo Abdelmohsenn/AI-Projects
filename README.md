@@ -15,6 +15,11 @@ Welcome to my collection of ML and Deep Learning projects. Each project focuses 
 - **ImageDataGenerator**
 - **Pillow**
 - **Scikit Learn**
+- **LangChain**
+- **FAISS-CPU / GPU**
+- **Surprise**
+- **SpeechRecognition**
+- **OpenAI**
 
 **Kindly Find The `requirements.txt` in The Repo For Guided Installation via:**  
 `pip install -r requirements.txt`
@@ -159,5 +164,51 @@ A comprehensive AI-powered tourism recommendation platform for Egypt featuring c
 - **Problem Solved:**  
   - Addresses tourism overcrowding at major sites.
   - Promotes under-utilized heritage locations across Egypt  
-  - Creates economic opportunities for secondary tourism sites  
+  - Creates economic opportunities for secondary tourism sites
+
+### 9. **VEXA — macOS Virtual Assistant** 🖥️🎙️⚡  
+A lightweight, always-on virtual assistant for macOS that detects a wake word and executes system-level commands. VEXA can open applications, terminate processes, run scripts, adjust system settings, and more — all via voice commands. The assistant is designed to be privacy-first and run entirely locally, with optional AI-enhanced capabilities.
+
+- **Technologies Used:**  
+  - [OpenAI API (GPT-4o)](https://platform.openai.com/docs/guides/gpt) for natural language understanding and responding with the json file scraped to be a command.
+  - [Subprocess](https://docs.python.org/3/library/subprocess.html) for executing macOS commands  
+  - [speech_recognition](https://pypi.org/project/SpeechRecognition/) for audio capture and offline transcription (Google) 
+  - [rapidfuzz](https://github.com/maxbachmann/RapidFuzz) for fuzzy text matching to improve wake-word and command detection  
+
+- **Key Features:**  
+  - **Wake Word Activation:** Always listening for a customizable hotword (“Vexa” by default)  
+  - **Command Execution:** Open apps, kill processes, adjust system volume, control music, or run custom scripts  
+  - **Offline Operation:** Uses local speech recognition for privacy and low latency  
+  - **Extensible Commands:** Easily add new functions with a Python function registry  
+  - **Cross-Integration:** Supports AppleScript and macOS-native automation for advanced workflows
+
+- **Problem Solved:**  
+  - Eliminates the need for cloud-dependent assistants for local tasks  
+  - Speeds up daily macOS interactions without mouse/keyboard  
+  - Provides a developer-friendly, modifiable voice assistant framework
+
+- **Example Use Cases:**  
+  - “Vexa, open Safari” → Instantly launches Safari  
+  - “Vexa, close Spotify” → Terminates the Spotify process  
+  - “Vexa, volume up” → Increases system volume by 10%  
+  - “Vexa, run my Python script” → Executes a local `.py` file
+
+The following json is an example of many that the LLM generates:
+
+```json
+{
+  "User": "Open Chrome.",
+  "action": "open_app",
+  "target": "Google Chrome",
+  "value": null,
+  "confirmation": false
+}
+```
+This will be converted into a command  => open -a 'Google Chrome'
+
+
+
+
+
+
 
