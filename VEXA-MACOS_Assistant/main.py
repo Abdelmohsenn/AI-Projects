@@ -3,11 +3,8 @@ import json, os
 from systemPrompt import systemPrompt
 
 kira = Kira(client=None, modelName="gpt-4o")
-count = 0
 
-while(1):
-    print(f"Listening for command for trial no. {count} ...")
-    # Record audio for 3 seconds
+def execute():
     audio = kira.recordAudio()
     query = kira.STT(audio)
     result = kira.response(query, systemPrompt)
@@ -112,21 +109,35 @@ while(1):
             finalCommand = f"say '{msg}'"
         case 'show_joke':
             finalCommand = '''osascript -e 'display dialog "Why did the Mac get cold? Because it left its Windows open!"' '''
+        case _:
+            finalCommand = res['action'] 
 
     match res['target']:
 
         case "Safari":
             finalCommand += "'Safari'"
-        case "Google Chrome":
+        case "Edge" | "Microsoft Edge":
+            finalCommand += "'Microsoft Edge'"
+        case "Google Chrome"| "Chrome":
             finalCommand += "'Google Chrome'"
-        case "System Preferences":
+        case "System Preferences" | "System Settings" | "Settings":
             finalCommand += "'System Preferences'"
         case "Activity Monitor":
             finalCommand += "'Activity Monitor'"
-        case "Music":
-            finalCommand += "'Music'"
+        case "Terminal":
+            finalCommand += "'Terminal'"
+        case "Calculator":
+            finalCommand += "'Calculator'"
+        case "Contacts":
+            finalCommand += "'Contacts'"
+        case "Reminders":
+            finalCommand += "'Reminders'"
         case "Notes":
             finalCommand += "'Notes'"
+        case "FaceTime":
+            finalCommand += "'FaceTime'"
+        case "Music" | "Apple Music"| "iTunes":
+            finalCommand += "'Music'"
         case "Calendar":
             finalCommand += "'Calendar'"
         case "Photos":
@@ -139,39 +150,8 @@ while(1):
             finalCommand += "'WhatsApp'"
         case "FaceTime":
             finalCommand += "'FaceTime'"
-        case "System Preferences" | "System Settings":
-            finalCommand += "'System Preferences'"
         case "Finder":
             finalCommand += "'Finder'"
-        # --- Songs ---
-        case "Shape of You":
-            finalCommand += "'Shape of You'"
-        case "Imagine":
-            finalCommand += "'Imagine'"
-        case "Bohemian Rhapsody":
-            finalCommand += "'Bohemian Rhapsody'"
-        case "Bad Guy":
-            finalCommand += "'Bad Guy'"
-        case "Uptown Funk":
-            finalCommand += "'Uptown Funk'"
-        # --- Times ---
-        case "07:00 AM":
-            finalCommand += "07:00 AM"
-        case "22:00":
-            finalCommand += "22:00"
-        case "tomorrow at 8 am":
-            finalCommand += "tomorrow at 8 am"
-        case "noon":
-            finalCommand += "noon"
-        # --- Folders/Files ---
-        case "/Users/yourname/Documents":
-            finalCommand += "/Users/yourname/Documents"
-        case "/Users/yourname/Downloads":
-            finalCommand += "/Users/yourname/Downloads"
-        case "/Applications":
-            finalCommand += "/Applications"
-        case "/tmp":
-            finalCommand += "/tmp"
         # --- URLs/Queries ---
         case "OpenAI":
             finalCommand += "'OpenAI'"
@@ -179,26 +159,14 @@ while(1):
             finalCommand += "'news'"
         case "weather today":
             finalCommand += "'weather today'"
-        case "https://github.com":
-            finalCommand += "'https://github.com'"
-        # --- Reminder/Event examples ---
-        case "Buy Milk":
-            finalCommand += "Buy Milk"
-        case "Call Mom":
-            finalCommand += "Call Mom"
-        case "Doctor's appointment at 3pm":
-            finalCommand += "Doctor's appointment at 3pm"
-        case "Meeting with Bob at noon":
-            finalCommand += "Meeting with Bob at noon"
+        case "github" | "GitHub":
+            finalCommand += "'GitHub'"
         # --- System/File utility ---
         case "disk space":
-            finalCommand += "disk space"
+            finalCommand += "'disk space'"
         case "system info":
-            finalCommand += "system info"
-        # --- Fun ---
-        case "hello":
-            finalCommand += "hello"
-        case "Tell me a joke":
-            finalCommand += "Tell me a joke"
+            finalCommand += "'system info'"
+
+    print(res)
     print(f"Executing command: {finalCommand}")  # Debug print
     os.system(finalCommand)
