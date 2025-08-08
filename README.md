@@ -130,3 +130,34 @@ A fully functional, RAG-based coding assistant that leverages advanced LLMs for 
   - **Easy Extensibility:**  
     Plug in your own indexed docs, project files, or wiki for tailored assistance.
 
+
+### 8. **Egyptian Tourism Recommender System** 🏺🎮🇪🇬  
+A comprehensive AI-powered tourism recommendation platform for Egypt featuring collaborative filtering, content-based recommendations, and an AR gamification layer to redistribute tourism flows and enhance cultural engagement.
+
+- **Technologies Used:**  
+  - [Surprise Library](https://surprise.readthedocs.io/) for collaborative filtering (SVD, KNN)  
+  - [LangChain](https://python.langchain.com/) for LLM integration and RAG pipeline  
+  - [OpenAI API (GPT-4o)](https://platform.openai.com/docs/guides/gpt) for natural language recommendations  
+  - [FAISS](https://github.com/facebookresearch/faiss) for semantic similarity search & Vector Stores
+  - [Scikit-learn](https://scikit-learn.org/) for content-based filtering and feature engineering  
+  - **Pandas**, **NumPy**, **Matplotlib** for data processing and visualization
+
+- **Dataset:**  
+  - **1,000 synthetic users** with demographic profiles along with 10000 ratings, each user rates 10 movies from total of 20.
+  - **32 links of Egyptian Ministry of Tourism and Antiquities sites** (Museums, Monuments, Archaeological Sites, Sunken Monuments, etc) using BeautifulSoap Scraping  
+  - **10,000 user-place interactions** with ratings (2-5 scale) 
+
+- **ML Techniques:**  
+  - **Collaborative Filtering:** SVD (RMSE: 0.615) and KNN (RMSE: 0.471)  
+  - **Content-Based Filtering:** One-hot encoding + Cosine similarity
+
+- **Key Features:**  
+  - **Personalized Recommendations:** AI-driven destination suggestions based on user preferences  
+  - **Tourism Redistribution:** Smart algorithms to promote lesser-known heritage sites  
+  - **LLM Integration:** Natural language explanations for recommendations via RAG and detailed info providing
+
+- **Problem Solved:**  
+  - Addresses tourism overcrowding at major sites.
+  - Promotes under-utilized heritage locations across Egypt  
+  - Creates economic opportunities for secondary tourism sites  
+
