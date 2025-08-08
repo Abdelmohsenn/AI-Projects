@@ -1,11 +1,13 @@
 from Client import Kira
 import json, os
+import random
 from systemPrompt import systemPrompt
 
 kira = Kira(client=None, modelName="gpt-4o")
+seconds = random.choice([3, 4, 5])  # Default recording time in seconds
 
 def execute():
-    audio = kira.recordAudio()
+    audio = kira.recordAudio(seconds=seconds)
     query = kira.STT(audio)
     result = kira.response(query, systemPrompt)
     print(result)
@@ -67,8 +69,7 @@ def execute():
             finalCommand = f"open '{url}'"
         # MUSIC/MEDIA
         case 'play_song':
-            song = res['target'].replace("'", "\\'")
-            finalCommand = f'''osascript -e 'tell application "Music" to play track "{song}"' '''
+            finalCommand = f'''osascript -e 'tell application "Music" to play' '''
         case 'pause_music':
             finalCommand = '''osascript -e 'tell application "Music" to pause' '''
         case 'next_track':
@@ -77,8 +78,7 @@ def execute():
             finalCommand = '''osascript -e 'tell application "Music" to previous track' '''
         # REMINDERS/CALENDAR/ALARMS
         case 'set_alarm':
-            time = res['target']
-            finalCommand = f'''osascript -e 'display dialog "Alarm set for {time}"' '''
+            finalCommand = f"open -a 'Clock'"
         case 'add_reminder':
             reminder = res['target']
             finalCommand = f'''osascript -e 'tell application "Reminders" to make new reminder with properties {{name: "{reminder}"}}' '''

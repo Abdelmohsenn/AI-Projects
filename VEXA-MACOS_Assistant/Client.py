@@ -53,7 +53,7 @@ class Kira:
         )
         return response
 
-    def recordAudio(self, seconds=3, fs=44100):
+    def recordAudio(self, seconds, fs=44100):
         print("Recording...")
         myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=1)
         sd.wait()  
