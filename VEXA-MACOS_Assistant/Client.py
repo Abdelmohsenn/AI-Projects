@@ -6,7 +6,7 @@ import soundfile as sf
 import io, json
 from systemPrompt import systemPrompt
 
-class Kira:
+class Vexa:
     def __init__(self, client, modelName, temperature=0.7, max_tokens=2048):
         self.client = client
         self.modelName = modelName
@@ -62,3 +62,20 @@ class Kira:
         buffer.seek(0)  
         buffer.name = "audio.mp3"  
         return buffer 
+
+    def talk(self, text, path):
+        if self.client is None:
+            self.setClient()
+        response = self.client.audio.speech.create(
+        model="tts-1-hd",
+        voice="coral",  
+        input=text,
+        speed=1  # Normal speed 
+        )
+        response.stream_to_file(path)
+
+    def initializeWAVs(self):
+        if not os.path.exists("VEXA-MACOS_Assistant/WAVs"):
+            os.makedirs("VEXA-MACOS_Assistant/WAVs")
+        self.talk("I am Listening....", "VEXA-MACOS_Assistant/WAVs/vexa_intro.wav")
+        self.talk("Understood!", "VEXA-MACOS_Assistant/WAVs/vexa_end.wav")

@@ -1,15 +1,13 @@
-from Client import Kira
 import json, os
 import random
 from systemPrompt import systemPrompt
 
-kira = Kira(client=None, modelName="gpt-4o")
 seconds = random.choice([3, 4, 5])  # Default recording time in seconds
 
-def execute():
-    audio = kira.recordAudio(seconds=seconds)
-    query = kira.STT(audio)
-    result = kira.response(query, systemPrompt)
+def execute(client):
+    audio = client.recordAudio(seconds=seconds)
+    query = client.STT(audio)
+    result = client.response(query, systemPrompt)
     print(result)
     res = json.loads(result)
     print(res['action'])
