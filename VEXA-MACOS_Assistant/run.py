@@ -1,6 +1,6 @@
 import speech_recognition as sr
 import subprocess
-from main import execute, errorFlag
+from Execution import execute
 from rapidfuzz import fuzz
 from pydub.playback import play
 from pydub import AudioSegment
@@ -17,22 +17,21 @@ print(startVoices)
 r = sr.Recognizer()
 mic = sr.Microphone()
 
-with mic as source:
-    r.adjust_for_ambient_noise(source)
 def wakeUp(wakeUpWord):
     with mic as source:
+        r.adjust_for_ambient_noise(source)
         audio = r.listen(source)
     try:
         text = "Vexa"
         print(text)
-        randomStartSound = random.choice(startVoices)
+        randomStartSound = random.choice(startVoices)   
 
         sound = AudioSegment.from_file(f"VEXA-MACOS_Assistant/WAVs/vexa_intro/{randomStartSound}")
         if fuzz.ratio(wakeUpWord, text) > 50:
             print("Wake word detected!")
             play(sound)
-            execute(client = vexa)
-            if errorFlag:
+            error = execute(client = vexa)
+            if error:
                 randomErrorVoice = random.choice(ErrorVoices)
                 sound = AudioSegment.from_file(f"VEXA-MACOS_Assistant/WAVs/vexa_error/{randomErrorVoice}")
             else:
@@ -47,5 +46,4 @@ def wakeUp(wakeUpWord):
 
 
 while True:
-    wakeUp("Vexa")    
-    
+    wakeUp("Vexa")

@@ -103,15 +103,12 @@ def execute(client):
                 finalCommand = f"rm -i '{file}'"
             # FUN/UTILITY
             case 'say':
-                msg = res['target'].replace("'", "\\'")
-                finalCommand = f"say '{msg}'"
-            case 'show_joke':
-                finalCommand = '''osascript -e 'display dialog "Why did the Mac get cold? Because it left its Windows open!"' '''
+                finalCommand = "say "
             case _:
                 finalCommand = res['action'] 
     except BaseException as e:
         print(f"echo 'Error Occurred: Invalid action {res['action']}'")
-        Error = True
+        errorFlag = True
 
     try:
         match res['target']:
@@ -170,8 +167,13 @@ def execute(client):
                 finalCommand += "'system info'"
     except BaseException as e:
         print(f"echo 'Error Occurred: Invalid action {res['action']}'")
-        Error = True
+        errorFlag = True
 
-    print(res)
-    print(f"Executing command: {finalCommand}")  # Debug print
-    os.system(finalCommand)
+    if 'clarify' in finalCommand:
+        errorFlag = True
+    else:
+        print(res)
+        print(f"Executing command: {finalCommand}")  # Debug print
+        os.system(finalCommand)
+        
+    return errorFlag
