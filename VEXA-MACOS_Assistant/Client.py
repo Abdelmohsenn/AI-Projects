@@ -75,7 +75,48 @@ class Vexa:
         response.stream_to_file(path)
 
     def initializeWAVs(self):
-        if not os.path.exists("VEXA-MACOS_Assistant/WAVs"):
-            os.makedirs("VEXA-MACOS_Assistant/WAVs")
-        self.talk("I am Listening....", "VEXA-MACOS_Assistant/WAVs/vexa_intro.wav")
-        self.talk("Understood!", "VEXA-MACOS_Assistant/WAVs/vexa_end.wav")
+        start_phrases = [
+            "I am Listening",
+            "Go ahead, I'm all ears.",
+            "Ready when you are.",
+            "Listening closely.",
+            "What can I do for you?",
+            "Awaiting your instructions.",
+            "You speak, I act.",
+            "Ears on, brain ready.",
+            "Command center online."
+        ]
+
+        end_phrases = [
+            "Got it.",
+            "Done and dusted.",
+            "Consider it Done.",
+            "All set.",
+            "Task completed.",
+            "Understood loud and clear.",
+            "Mission Completed.",
+            "Execution successful.",
+            "Done. What's next?"
+        ]
+        errorPhrases = [
+            "Sorry, I didn't catch that.",
+            "Could you please repeat that?",
+            "I'm having trouble understanding.",
+            "Can you say that again?",
+            "I didn't quite get that.",
+            "I'm not sure I understand."
+        ]
+
+        if not os.path.exists("VEXA-MACOS_Assistant/WAVs/vexa_intro")\
+            or not os.path.exists("VEXA-MACOS_Assistant/WAVs/vexa_end")\
+            or not os.path.exists("VEXA-MACOS_Assistant/WAVs/vexa_error"):
+            os.makedirs("VEXA-MACOS_Assistant/WAVs/vexa_intro")
+            os.makedirs("VEXA-MACOS_Assistant/WAVs/vexa_end")
+            os.makedirs("VEXA-MACOS_Assistant/WAVs/vexa_error")
+
+        for i, phrase in enumerate(start_phrases):
+            self.talk(phrase, f"VEXA-MACOS_Assistant/WAVs/vexa_intro/{i+1}.wav")
+        for i, phrase in enumerate(end_phrases):
+            self.talk(phrase, f"VEXA-MACOS_Assistant/WAVs/vexa_end/{i+1}.wav")
+        for i, phrase in enumerate(errorPhrases):
+            self.talk(phrase, f"VEXA-MACOS_Assistant/WAVs/vexa_error/{i+1}.wav")

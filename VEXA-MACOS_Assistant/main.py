@@ -3,7 +3,7 @@ import random
 from systemPrompt import systemPrompt
 
 seconds = random.choice([3, 4, 5])  # Default recording time in seconds
-
+errorFlag = False
 def execute(client):
     audio = client.recordAudio(seconds=seconds)
     query = client.STT(audio)
@@ -111,6 +111,7 @@ def execute(client):
                 finalCommand = res['action'] 
     except BaseException as e:
         print(f"echo 'Error Occurred: Invalid action {res['action']}'")
+        Error = True
 
     try:
         match res['target']:
@@ -169,6 +170,7 @@ def execute(client):
                 finalCommand += "'system info'"
     except BaseException as e:
         print(f"echo 'Error Occurred: Invalid action {res['action']}'")
+        Error = True
 
     print(res)
     print(f"Executing command: {finalCommand}")  # Debug print
