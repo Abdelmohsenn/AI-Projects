@@ -11,3 +11,9 @@ langgraph
 langchain
 langchain-core
 langchain-openai
+speech_recognition
+pydub
+soundfile
+sounddevice
+rapidfuzz
+dotenv
