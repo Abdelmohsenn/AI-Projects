@@ -9,6 +9,7 @@ import Client
 
 vexa = Client.Vexa(client=None, modelName="gpt-4o")
 # vexa.initializeWAVs()
+print(vexa)
 endVoices = os.listdir("VEXA-MACOS_Assistant/WAVs/vexa_end")
 startVoices = os.listdir("VEXA-MACOS_Assistant/WAVs/vexa_intro")
 ErrorVoices = os.listdir("VEXA-MACOS_Assistant/WAVs/vexa_error")

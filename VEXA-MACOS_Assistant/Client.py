@@ -14,10 +14,7 @@ class Vexa:
         self.max_tokens = max_tokens
 
     def __repr__(self):
-        if self.apikey is None:
-            return f"Kira(client={self.client}, apikey={self.apikey}, modelName={self.modelName}, temperature={self.temperature}, max_tokens={self.max_tokens})"
-        else:
-            return f"Kira(client={self.client}, modelName={self.modelName}, temperature={self.temperature}, max_tokens={self.max_tokens})"
+        return f"Kira(client={self.client},\n modelName={self.modelName},\n temperature={self.temperature},\n max_tokens={self.max_tokens})"
 
     def initEnv(self):
         load_dotenv()
