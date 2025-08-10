@@ -5,6 +5,7 @@ from rapidfuzz import fuzz
 from pydub.playback import play
 from pydub import AudioSegment
 import os, random
+import websocket
 import Client
 
 vexa = Client.Vexa(client=None, modelName="gpt-4o")

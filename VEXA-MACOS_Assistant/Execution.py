@@ -2,7 +2,7 @@ import json, os
 import random
 from systemPrompt import systemPrompt
 
-seconds = random.choice([3, 4, 5])  # Default recording time in seconds
+seconds = random.choice([2,2.5])  # Default recording time in seconds
 errorFlag = False
 def execute(client):
     audio = client.recordAudio(seconds=seconds)
@@ -115,6 +115,10 @@ def execute(client):
 
             case "Safari":
                 finalCommand += "'Safari'"
+            case "Visual Studio" | "VSCode" | "Visual Studio Code":
+                finalCommand += "'Code'"
+            case "Firefox":
+                finalCommand += "'Firefox'"
             case "Edge" | "Microsoft Edge":
                 finalCommand += "'Microsoft Edge'"
             case "Google Chrome"| "Chrome":
