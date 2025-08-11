@@ -51,7 +51,7 @@ class Vexa:
         return response
 
     def recordAudio(self, seconds, fs=44100):
-        print("Recording...")
+        print("Vexa is Listening...")
         myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=1)
         sd.wait()  
         buffer = io.BytesIO()

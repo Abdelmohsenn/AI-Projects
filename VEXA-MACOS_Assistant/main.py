@@ -28,7 +28,6 @@ AUDIO_PATH = "VEXA-MACOS_Assistant/WAVs/vexa_error/3.wav"
 transcript_buf = []
 lock = threading.Lock()
 recording_enabled = threading.Event()
-recording_enabled.set()  # allow recording at start
 URL = "wss://api.openai.com/v1/realtime?intent=transcription"
 HEADERS = [
     "Authorization: Bearer " + OPENAI_API_KEY,
@@ -63,6 +62,7 @@ def load_audio_as_pcm16(path):
 
 def on_open(ws):
     print("Connected!")
+    recording_enabled.set()  # allow recording at start
     session_update = {
         "type": "transcription_session.update",
         "session": {
@@ -90,7 +90,6 @@ def wakeUp(wakeUpWord, final_transcript):
             randomEndVoice = random.choice(endVoices)
             sound = AudioSegment.from_file(f"VEXA-MACOS_Assistant/WAVs/vexa_end/{randomEndVoice}")
         play(sound)
-        recording_enabled.set()
 
 def on_message(ws, message):   
 
@@ -112,9 +111,9 @@ def on_message(ws, message):
         with lock:
             final_transcript = "".join(transcript_buf)
             transcript_buf.clear()
-        recording_enabled.clear()
-        wakeUp("Hello, Vexa", final_transcript)
-        recording_enabled.set()
+            recording_enabled.clear()
+            wakeUp("Hello, Vexa", final_transcript)
+            recording_enabled.set()
     # print(final_transcript)
 
 def on_error(ws, err):

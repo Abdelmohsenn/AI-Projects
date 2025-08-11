@@ -46,6 +46,5 @@ def wakeUp(wakeUpWord):
     except sr.UnknownValueError:
         pass
 
-
 while True:
     wakeUp("Vexa")

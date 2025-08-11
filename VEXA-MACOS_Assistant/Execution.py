@@ -2,7 +2,7 @@ import json, os
 import random
 from systemPrompt import systemPrompt
 
-seconds = random.choice([2,2.5])  # Default recording time in seconds
+seconds = 2  # Default recording time in seconds
 errorFlag = False
 def execute(client):
     audio = client.recordAudio(seconds=seconds)
