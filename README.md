@@ -136,7 +136,7 @@ A fully functional, RAG-based coding assistant that leverages advanced LLMs for 
     Plug in your own indexed docs, project files, or wiki for tailored assistance.
 
 
-### 8. **Egyptian Tourism Recommender System** 🏺🎮🇪🇬  
+### 8. **Egyptian Tourism Recommender System Via Chatbot** 🏺🎮🇪🇬  
 A comprehensive AI-powered tourism recommendation platform for Egypt featuring collaborative filtering, content-based recommendations, and an AR gamification layer to redistribute tourism flows and enhance cultural engagement.
 
 - **Technologies Used:**  
