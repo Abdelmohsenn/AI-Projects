@@ -5,7 +5,8 @@ from systemPrompt import systemPrompt
 seconds = 2  # Default recording time in seconds
 errorFlag = False
 def execute(client):
-    audio = client.recordAudio(seconds=seconds)
+    errorFlag = False
+    audio = client.recordAudio()
     query = client.STT(audio)
     result = client.response(query, systemPrompt)
     print(result)

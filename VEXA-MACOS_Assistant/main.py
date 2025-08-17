@@ -83,10 +83,13 @@ def wakeUp(wakeUpWord, final_transcript):
         print("Wake word detected!")
         play(sound)
         error = execute(client = vexa)
+        print("The error is:", error)
         if error:
+            print("xx")
             randomErrorVoice = random.choice(ErrorVoices)
             sound = AudioSegment.from_file(f"VEXA-MACOS_Assistant/WAVs/vexa_error/{randomErrorVoice}")
         else:
+            print("yy")
             randomEndVoice = random.choice(endVoices)
             sound = AudioSegment.from_file(f"VEXA-MACOS_Assistant/WAVs/vexa_end/{randomEndVoice}")
         play(sound)
@@ -100,7 +103,8 @@ def on_message(ws, message):
 
     t = data.get("type")
     if t == "error":
-        print("ERROR:", json.dumps(data, indent=2))
+        # print("ERROR:", json.dumps(data, indent=2))
+        pass
 
     if t == "conversation.item.input_audio_transcription.delta":
         with lock:
@@ -132,13 +136,6 @@ def record_loop(ws):
         realTimeRecord(ws)
         time.sleep(0.1)  # slight delay before next recording
 threading.Thread(target=ws.run_forever).start()
-# threading.Thread(target=record_loop, args=(ws,), daemon=True).start()
 
-# try:
-#     while True:
-
-#         time.sleep(0.1)  # Keeps main alive forever
-# except KeyboardInterrupt:
-#     print("Shutting down...")
 record_loop(ws)
 

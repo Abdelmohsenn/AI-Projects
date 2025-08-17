@@ -3,7 +3,8 @@ from dotenv import load_dotenv
 from openai import OpenAI
 import sounddevice as sd
 import soundfile as sf
-import io, json
+import numpy
+import io, json, time
 from systemPrompt import systemPrompt
 
 class Vexa:
@@ -49,16 +50,52 @@ class Vexa:
             language="en"
         )
         return response
+    
+    # def recordAudio(self, seconds, fs=44100):
+    #     print("Vexa is Listening...")
+    #     myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=1)
+    #     sd.wait()  
+    #     buffer = io.BytesIO()
+    #     sf.write(buffer, myrecording, fs, format='mp3')
+    #     buffer.seek(0)  
+    #     buffer.name = "audio.mp3"  
+    #     return buffer 
 
-    def recordAudio(self, seconds, fs=44100):
-        print("Vexa is Listening...")
-        myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=1)
-        sd.wait()  
+    def recordAudio(self, fs=44100, silence_thresh=0.7, silence_duration=2.0):
+        print("Vexa is Listening... (speak now)")
+
+        recording = []
+        silence_start = None
+        chunk_size = int(fs * 0.2)
+
+        with sd.InputStream(samplerate=fs, channels=1) as stream:
+            while True:
+                # read small chunk
+                chunk, _ = stream.read(chunk_size)
+                recording.append(chunk)
+
+                # compute volume (RMS)
+                rms = numpy.sqrt(numpy.mean(chunk**2))
+
+                if rms < silence_thresh:
+                    if silence_start is None:
+                        silence_start = time.time()
+                    elif time.time() - silence_start > silence_duration:
+                        print("Silence detected, stopping...")
+                        break
+                else:
+                    silence_start = None  # reset silence timer
+
+        # concatenate chunks
+        myrecording = numpy.concatenate(recording, axis=0)
+
+        # save to buffer as MP3
         buffer = io.BytesIO()
         sf.write(buffer, myrecording, fs, format='mp3')
-        buffer.seek(0)  
-        buffer.name = "audio.mp3"  
-        return buffer 
+        buffer.seek(0)
+        buffer.name = "audio.mp3"
+
+        return buffer
 
     def talk(self, text, path):
         if self.client is None:
