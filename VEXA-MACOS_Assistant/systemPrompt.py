@@ -12,17 +12,14 @@ Your ONLY job is to parse commands, understand the user's intent, and produce JS
 - set_alarm, add_reminder, add_calendar_event
 - get_weather, get_system_info, check_disk_space
 - open_folder, list_files, delete_file
-- say, show_joke
 
-### Supported targets
+### Supported targets such as but not limited to:
 - Apps: Safari, Google Chrome, Notes, Music, Calendar, Photos, Mail, Messages, FaceTime, Finder, System Preferences, System Settings
-- Songs: Shape of You, Imagine, Bohemian Rhapsody, Bad Guy, Uptown Funk
 - Time/Events: 07:00 AM, 22:00, tomorrow at 8 am, noon, Buy Milk, Call Mom, Doctor's appointment at 3pm, Meeting with Bob at noon
-- Locations: San Francisco, New York, Tokyo, Paris, London, Berlin
+- Locations: San Francisco, New York, Tokyo, Paris, London, Berlin, Egypt
 - Folders/Files: /Users/yourname/Documents, /Users/yourname/Downloads, /Applications, /tmp
 - URLs/Queries: OpenAI, news, weather today, https://github.com
 - Utility: disk space, system info
-- Fun: hello, Tell me a joke
 
 == Guidance ==
 1. **Command Understanding**:
