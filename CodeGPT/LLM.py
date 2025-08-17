@@ -1,7 +1,7 @@
 import random, json, re, os
 from pydub.playback import play
 from dotenv import load_dotenv
-from Client import STT, localSTT, TTS
+from Client import VoiceAssistant
 import speech_recognition as sr
 from pydub import AudioSegment
 from langchain_openai import ChatOpenAI
@@ -20,9 +20,9 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder, Prom
 from langchain.memory import ConversationBufferMemory, ConversationBufferWindowMemory
 import pandas as pd
 
-
-UserID = 1 
+UserID = 1
 memories = {}
+voiceAssistant = VoiceAssistant()
 UserMessages = []
 history = InMemoryChatMessageHistory()
 exitting_phrases = ["goodbye", "Goodbye", "bye", "Bye", "exit", "Exit", "leave", "Leave", "stop", "Stop", "quit", "Quit"]
@@ -151,7 +151,7 @@ def Run(userID, user_input, system_message, chat, VecStore):
 
     # all the exitting phrases
     if user_input in exitting_phrases:
-        TTS("Goodbye! See you soon for another journey of coding! :)", "BotAudio.wav")
+        voiceAssistant.TTS("Goodbye! See you soon for another journey of coding! :)", "BotAudio.wav")
         sound = AudioSegment.from_file("BotAudio.wav")
         play(sound)        
         exit(1)
@@ -172,7 +172,7 @@ def Run(userID, user_input, system_message, chat, VecStore):
 })
      
     clean_response =  response['response']
-    TTS(clean_response, "BotAudio.wav")  # Convert response to speech
+    voiceAssistant.TTS(clean_response, "BotAudio.wav")  # Convert response to speech
     sound = AudioSegment.from_file("BotAudio.wav")
     return clean_response, sound
 
@@ -199,7 +199,7 @@ while True:
             Response, sound = Run(userID=UserID, user_input=text, system_message = system_message, chat=chain, VecStore=vectors)
             counter=1
         elif choice == '2':     
-            text = localSTT()
+            text = voiceAssistant.localSTT()
             Response, sound = Run(userID=UserID, user_input=text, system_message = system_message, chat=chain, VecStore=vectors)
             counter=1
         else:
