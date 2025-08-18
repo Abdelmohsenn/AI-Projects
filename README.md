@@ -95,7 +95,7 @@ A comprehensive AI-powered tourism recommendation platform for Egypt featuring c
   - **10,000 user-place interactions** with ratings (2-5 scale) 
 
 - **ML Techniques:**  
-  - **Collaborative Filtering:** SVD (RMSE: 0.615) and KNN (RMSE: 0.471)  
+  - **Collaborative Filtering:** SVD (RMSE: 0.615, MAE: 0.41) and KNN (RMSE: 0.471, MAE:0.29)  
   - **Content-Based Filtering:** One-hot encoding + Cosine similarity
 
 - **Key Features:**  
