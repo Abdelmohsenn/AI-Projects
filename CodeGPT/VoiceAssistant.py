@@ -10,9 +10,6 @@ class VoiceAssistant:
         load_dotenv()
         self.apikey = os.getenv("OPENAI_API_KEY")
         self.client = OpenAI(api_key=self.apikey)
-        # Set up file paths
-        self.speech_file_path = Path(__file__).parent / "speech.wav"
-        self.output_file_path = Path(__file__).parent / "CodeGPT.wav"
 
     # Text to speech using open ai
     def TTS(self, output, outpath):
@@ -25,10 +22,10 @@ class VoiceAssistant:
         response.stream_to_file(outpath)
 
     # Speech to text using open ai
-    def STT(self):
+    def STT(self, speech_file_path):
         response = self.client.audio.transcriptions.create(
             model = "whisper-1",
-            file = self.speech_file_path
+            file = speech_file_path
         )
         # print(response.text)
         return response.text
