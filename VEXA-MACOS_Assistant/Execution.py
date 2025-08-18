@@ -72,9 +72,9 @@ def execute(client):
     audio = client.recordAudio()
     query = client.STT(audio)
     result = client.response(query, systemPrompt)
-    print(result)
+    # print(result)
     res = json.loads(result)
-    print(res['action'])
+    # print(res['action'])
 
     if res['action'] not in ValueRelatedList:
         finalCommand = ActionMap[res['action']] + " " + (targetMap[res['target']] if res['target'] in targetMap else f"'{res['target']}'")
@@ -82,12 +82,12 @@ def execute(client):
         finalCommand = ActionMap[res['action']] + " " + str(res['value'] + "'")
 
 
-    print(f"Executing command: {finalCommand}")  # Debug print
+    # print(f"Executing command: {finalCommand}")  # Debug print
 
     if 'clarify' in finalCommand:
         errorFlag = True
     else:
-        print(res)
+        # print(res)
         os.system(finalCommand)
 
     return errorFlag
