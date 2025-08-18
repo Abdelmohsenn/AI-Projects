@@ -206,6 +206,45 @@ The following json is an example of many that the LLM generates:
 ```
 This will be converted into a command  => open -a 'Google Chrome'
 
+### 10. **Real-Time Sign Language Detection** 🤟🎥  
+An end-to-end system that recognizes sign language gestures in real time using computer vision and deep learning techniques. This project aims to bridge communication gaps for hearing-impaired individuals by providing robust, real-time gesture recognition from video input.
+
+- **Key Tasks & Workflow:**
+  - **Hand Detection (from scratch):**  
+    - Leveraged the EgoHands dataset (subset of 1,000 annotated images)  
+    - Implemented custom feature extraction methods:  
+      - **Canny edge detection, Sobel gradients, contour & convex hull analysis**
+      - **Local Binary Patterns (LBP)** for hand texture  
+      - **Skin color masking** using HSV color space
+      - **Histogram of Oriented Gradients (HOG)**
+    - Trained a bespoke Convolutional Neural Network (CNN)  
+    - Output: Binary hand detection and bounding box regression
+  - **Sign Detection Using MediaPipe:**  
+    - Used the **WL-ASL Dataset**: 2,000 words/letters, >21k videos  
+    - Downloaded and organized missing video data; applied data augmentation (flipping, rotation, scaling)
+    - Extracted frames at 5 FPS to create gesture image datasets
+    - Detected hand(s) and located 21 key landmarks per hand using **MediaPipe**
+    - Features: flattened landmark arrays for each frame
+    - Built a Fully Connected Neural Network (FCNN) to classify gestures
+    - Integrated sentence mapping using OpenCV and post-processing to ensure grammatical output
+  - **Alternative SIFT-Based Approach (Very Poor Performance):**  
+    - Extracted SIFT keypoints/descriptors from detected hands  
+    - Fed into an augmented FCNN for classification  
+    - Noted for being less robust/noisier than MediaPipe pipeline
+
+- **Datasets Used:**  
+  - **WL-ASL** (Word-Level American Sign Language): >21,000 labeled videos, isolated sign focus
+  - **EgoHands:** 48,000+ annotated hand images (subset used for training custom hand detector)
+
+- **Technologies & Libraries:**  
+  - **TensorFlow, Keras, OpenCV, Scikit-Learn, Pandas, NumPy**
+  - **MediaPipe** for real-time hand and landmark detection
+  - **PyTube** for dataset augmentation/downloading
+  - **scikit-learn**
+  - **Matplotlib** for plotting images
+  - **NumPY**
+
+
 
 
 
