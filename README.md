@@ -33,6 +33,11 @@ Predicts a person's gender from their name.
 - **Task:** Binary Gender Classification (0 = Male, 1 = Female)  
 - **Dataset:** [Gender Names Dataset](https://www.kaggle.com/datasets/gracehephzibahm/gender-by-name)  
 
+| Metric               | Accuracy |
+|-----------------------|----------|
+| Training Accuracy     | 82.55%   |
+| Validation Accuracy   | 80.60%   |
+| Testing Accuracy      | 80.68%   |
 ---
 ### 2. **Stock Price Prediction (Apple Inc.)** 📈🍏  
 A regression-based machine learning model to predict the stock **closing price** of Apple (AAPL) using historical data from **Yahoo Finance (2015–2024)**.
@@ -98,6 +103,19 @@ A comprehensive AI-powered tourism recommendation platform for Egypt featuring c
   - **Collaborative Filtering:** SVD (RMSE: 0.615, MAE: 0.41) and KNN (RMSE: 0.471, MAE:0.29)  
   - **Content-Based Filtering:** One-hot encoding + Cosine similarity
 
+#### SVD
+| Metric | Value |
+|--------|-------|
+| RMSE   | 0.615 |
+| MAE    | 0.41  |
+
+#### KNN
+| Metric | Value |
+|--------|-------|
+| RMSE   | 0.471 |
+| MAE    | 0.29  |
+
+
 - **Key Features:**  
   - **Personalized Recommendations:** AI-driven destination suggestions based on user preferences  
   - **Tourism Redistribution:** Smart algorithms to promote lesser-known heritage sites  
@@ -122,7 +140,14 @@ A Convolutional Neural Network (CNN) model trained to classify dog breeds from i
 ### 2. **Facial Emotion Recognition** 😊😢😠  
 A model that detects human facial expressions and classifies them into emotional states.  
 - **Emotions:** Happy, Sad, Angry, Surprise, Neutral, etc.  
-- **Dataset:** [AffectNET](https://www.kaggle.com/datasets/mstjebashazida/affectnet)  
+- **Dataset:** [AffectNET](https://www.kaggle.com/datasets/mstjebashazida/affectnet)
+- Had a challenge, the SOTA is 66%, we achieved (This Dataset was too large!):
+  
+| Metric                | Accuracy |
+|-----------------------|----------|
+| Training Accuracy     | 64.75%   |
+| Validation Accuracy   | 63.70%   |
+
 
 ---
 
@@ -131,6 +156,12 @@ A CNN-based model to classify gender from facial images.  (0 => Females, 1 => Ma
 - **Technique:** CNN for image-based classification  
 - **Dataset:** [UTKFace Dataset](https://www.kaggle.com/datasets/jangedoo/utkface-new)
 
+| Metric                | Accuracy |
+|-----------------------|----------|
+| Training Accuracy     | 84.35%   |
+| Validation Accuracy   | 85.60%   |
+| Testing Accuracy      | 85%      |
+
 ---
 
 ### 4. **Dogs vs Cats Classification** 🐶🐱  
@@ -138,8 +169,12 @@ A binary image classification project using **VGG16** pretrained model with fine
 - **Technique:** Transfer Learning with VGG16  
 - **Dataset:** [Dog and Cat Classification Dataset](https://www.kaggle.com/datasets/bhavikjikadara/dog-and-cat-classification-dataset)  
 - **Approach:** Feature extraction + fine-tuning
-
-Certainly! Here is a **Markdown section** ready to copy-paste into your `README.md`. It matches your formatting and introduces the **CodeGPT (Coding Assistant LLM)** project as requested:
+  
+| Metric                | Accuracy |
+|-----------------------|----------|
+| Training Accuracy     | 97.55%   |
+| Validation Accuracy   | 95.60%   |
+| Testing Accuracy      | 96.68%   |
 
 ---
 ### 5. **Real-Time Sign Language Detection** 🤟🎥  
@@ -163,6 +198,12 @@ An end-to-end system that recognizes sign language gestures in real time using c
     - Features: flattened landmark arrays for each frame
     - Built a Fully Connected Neural Network (FCNN) to classify gestures
     - Integrated sentence mapping using OpenCV and post-processing to ensure grammatical output
+      
+| Metric                | Accuracy |
+|-----------------------|----------|
+| Training Accuracy     | 86.55%   |
+| Validation Accuracy   | 84.40%   |
+
   - **Alternative SIFT-Based Approach (Very Poor Performance):**  
     - Extracted SIFT keypoints/descriptors from detected hands  
     - Fed into an augmented FCNN for classification  
