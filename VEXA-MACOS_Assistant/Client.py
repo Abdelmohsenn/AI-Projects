@@ -50,17 +50,7 @@ class Vexa:
             language="en"
         )
         return response
-    
-    # def recordAudio(self, seconds, fs=44100):
-    #     print("Vexa is Listening...")
-    #     myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=1)
-    #     sd.wait()  
-    #     buffer = io.BytesIO()
-    #     sf.write(buffer, myrecording, fs, format='mp3')
-    #     buffer.seek(0)  
-    #     buffer.name = "audio.mp3"  
-    #     return buffer 
-
+        
     def recordAudio(self, fs=44100, silence_thresh=0.7, silence_duration=2.0):
         print("Vexa is Listening... (speak now)")
 
