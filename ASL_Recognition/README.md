@@ -114,3 +114,11 @@ This project presents a pipeline for real-time sign language recognition using c
 - More data cleaning (background removal, frame selection, etc.)
 
 ---
+
+The below snippets is a result of our Real Time ASL Recognition:
+
+<img width="369" height="303" alt="Screenshot 2025-08-18 at 5 11 59 PM" src="https://github.com/user-attachments/assets/5a7a3d5d-446a-4716-a2ed-ecddcca76fe1" />
+<img width="369" height="278" alt="Screenshot 2025-08-18 at 5 12 20 PM" src="https://github.com/user-attachments/assets/f22f4a89-8c5f-4775-a855-ac44f2e99e3c" />
+<img width="369" height="278" alt="Screenshot 2025-08-18 at 5 12 31 PM" src="https://github.com/user-attachments/assets/d16ac634-4fee-4836-bdff-20933f34eede" />
+
+
