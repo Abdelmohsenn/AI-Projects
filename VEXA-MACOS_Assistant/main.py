@@ -85,11 +85,9 @@ def wakeUp(wakeUpWord, final_transcript):
         error = execute(client = vexa)
         print("The error is:", error)
         if error:
-            print("xx")
             randomErrorVoice = random.choice(ErrorVoices)
             sound = AudioSegment.from_file(f"VEXA-MACOS_Assistant/WAVs/vexa_error/{randomErrorVoice}")
         else:
-            print("yy")
             randomEndVoice = random.choice(endVoices)
             sound = AudioSegment.from_file(f"VEXA-MACOS_Assistant/WAVs/vexa_end/{randomEndVoice}")
         play(sound)

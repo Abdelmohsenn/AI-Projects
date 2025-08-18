@@ -51,7 +51,7 @@ class Vexa:
         )
         return response
         
-    def recordAudio(self, fs=44100, silence_thresh=0.7, silence_duration=2.0):
+    def recordAudio(self, fs=44100, silence_thresh=0.5, silence_duration=2.0):
         print("Vexa is Listening... (speak now)")
 
         recording = []
