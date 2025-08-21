@@ -138,7 +138,8 @@ A Convolutional Neural Network (CNN) model trained to classify dog breeds from i
 ---
 
 ### 2. **Facial Emotion Recognition** 😊😢😠  
-A model that detects human facial expressions and classifies them into emotional states.  
+#### 1. AFFECT_NET Dataset
+A model that detects human facial expressions and classifies them into emotional states (RGB).  
 - **Emotions:** Happy, Sad, Angry, Surprise, Neutral, etc.  
 - **Dataset:** [AffectNET](https://www.kaggle.com/datasets/mstjebashazida/affectnet)
 - Had a challenge, the SOTA is 66%, we achieved (This Dataset was too large!):
@@ -147,6 +148,16 @@ A model that detects human facial expressions and classifies them into emotional
 |-----------------------|----------|
 | Training Accuracy     | 64.75%   |
 | Validation Accuracy   | 63.70%   |
+
+#### 2. FER2013+ Dataset
+A model that detects human facial expressions and classifies them into emotional states (Grayscale).  
+- **Emotions:** Happy, Sad, Angry, Disgust, Neutral, Fear.  
+- **Dataset:** [FER2013]([https://www.kaggle.com/datasets/mstjebashazida/affectnet](https://www.kaggle.com/datasets/msambare/fer2013))
+  
+| Metric                | Accuracy |
+|-----------------------|----------|
+| Training Accuracy     | 86.75%   |
+| Validation Accuracy   | 83.70%   |
 
 
 ---
