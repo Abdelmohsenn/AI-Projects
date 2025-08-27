@@ -314,7 +314,6 @@ A lightweight, always-on virtual assistant for macOS that detects a wake word an
   - “Vexa, open Safari” → Instantly launches Safari  
   - “Vexa, close Spotify” → Terminates the Spotify process  
   - “Vexa, volume up” → Increases system volume by 10%  
-  - “Vexa, run my Python script” → Executes a local `.py` file
 
 The following json is an example of many that the LLM generates:
 
