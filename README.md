@@ -231,7 +231,29 @@ An end-to-end system that recognizes sign language gestures in real time using c
   - **scikit-learn**
   - **Matplotlib** for plotting images
   - **NumPY**
- 
+
+ ### 6. **Brain Tumor Multi-Classification** 🧠   
+Multi-class brain tumor classification from MRI scans using a custom deep convolutional neural network.
+
+- **Task:** Classify MRIs into **glioma**, **meningioma**, **pituitary tumor**, and **no tumor**.
+- **Dataset:** [Brain Tumor MRI Dataset (Kaggle)](https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset)
+- **Model:**  
+  • 4 Convolutional blocks (with Dropout and MaxPooling)  
+  • Dense layers (Dropout, L2-regularization)  
+  • Trained with **AdamW** optimizer, data augmentation, early stopping, learning rate scheduling.
+- **Techniques:** Heavy augmentation, callbacks for best performance, aggressive regularization for generalization.
+- **Notable Steps:**  
+  • Rigorous data visualization and balancing  
+  • Confusion matrix for result analysis  
+  • Prediction visualization on random MRI scans
+  
+| Metric                | Accuracy |
+|-----------------------|----------|
+| Training Accuracy     | 95.15%   |
+| Validation Accuracy   | 90.60%   |
+| Testing Accuracy      | 93.50%   |
+
+
 ## ✅ LLM & GenAI Projects
 
 
