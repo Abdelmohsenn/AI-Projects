@@ -1,0 +1,10 @@
+.DS_Store
+# Python
+__pycache__/
+.env
+venv/
+ENV/
+vids/
+.DL
+.vscode/
+*.streamlit
