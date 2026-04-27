@@ -254,6 +254,42 @@ Multi-class brain tumor classification from MRI scans using a custom deep convol
 | Testing Accuracy      | 93.50%   |
 
 
+ ### 7. **Distracted Driver Detection** 🧠   
+A production-ready deep learning system for real-time driver distraction detection using multimodal fusion architecture combining **EfficientNet-B3** visual encoding with **YOLOv8-Pose** skeletal feature extraction, achieving **99.15% validation accuracy** on the State Farm dataset.
+
+- **Task:** Classify drivers into 10 classes (c0-9).
+- **Dataset:** Download from Kaggle](https://www.kaggle.com/competitions/state-farm-distracted-driver-detection/data)
+## Architecture
+
+### Multimodal Fusion Design
+
+The system employs a **dual-branch neural network** that processes both visual and skeletal information:
+
+```
+Input Driver Image (256x256)
+    │
+    ├─→ [EfficientNet-B3 CNN Branch]
+    │      └─→ Feature Extraction (1536-dim)
+    │
+    └─→ [YOLOv8-Pose Detection Branch]
+           └─→ 17 Keypoints Extraction
+           └─→ MLP Processing (17×3 → 64-dim)
+    │
+    ├─→ [Fusion Layer]
+    │      └─→ Concatenate (1536 + 64 = 1600-dim)
+    │
+    └─→ [Classification Head]
+           └─→ Dense Layers (1600 → 512 → 256 → 10 classes)
+```
+
+  
+**Key Performance Metrics:**
+- Validation Accuracy: **99.15%**
+- Architecture: Multimodal Fusion (EfficientNet-B3 + YOLOv8-Pose)
+- Inference Speed: 10-20 FPS (GPU), 2-5 FPS (CPU)
+- Model Size: ~45 MB
+
+
 ## ✅ LLM & GenAI Projects
 
 
