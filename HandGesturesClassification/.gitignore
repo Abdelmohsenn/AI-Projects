@@ -1,0 +1,7 @@
+.DS_Store
+__pycache__/
+mlflow.db
+mlruns/
+ML1Project_Video.mp4
+HaGRID_output.mp4
+*.pkl
